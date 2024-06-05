@@ -529,9 +529,16 @@ INSERT INTO belong (id_book, id_genre) VALUES
 INSERT INTO member VALUES
 ('0000-zm8-25a1-0000-0000-3m2v-0000-0001', 'Razafindratelo', 'Abegà', '2024-01-01', '2025-01-01','Etudiant en MI - UA et Informatique HEI', 'Ambohipanja LOT 185 AS', '+261 38 22 694 35', 'a.razafindratelo@gmail.com');
 
+INSERT INTO section VALUES
+('S-0000-0001'),
+('S-0000-0002'),
+('S-0000-0003'),
+('S-0000-0004'),
+('S-0000-0005'),
+('S-0000-0006'),
+('S-0000-0007'),
+('S-0000-0008'),
+('S-0000-0009'),
+('S-0000-0010');
 
-select * from author where not exists
-(select * from written_by where author.id_author = written_by.id_author);
-
-select * from book where
 
