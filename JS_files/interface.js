@@ -29,22 +29,31 @@ function menu(){
 /**Pour les membres */
 function membresOption(){
     console.log("Bienvenu cher membres.");
-    console.log("1-Choisir un livre");
-    console.log("2-Livre empreintable");
-    console.log("3-Livre non empreintable");
-    console.log("4-Quitter")
+    console.log("1-Chercher un livre");
+    console.log("2-Afficher la liste des livres ecritent par tel Auteur");
+    console.log("3-Afficher la liste des livres par categorie");
+    console.log("4-Chercher des livres par categorie");
+    console.log("5-Certains livres ne se trouvent pas dans la bibliotheque, voulez vous que le bibliotheque les possedent?");
+    console.log("6-Quitter")
 
     const member_ask = prompt("Veillez saisir votre reponse: ");
     if (member_ask == "1") {
-        return false;
+        const request = prompt('Enter le titre du livre ');
     }
     if (member_ask == "2") {
-        return true;
+        const request = prompt('Enter le nom de l\'Auteur ')
     }
     if (member_ask == "3") {
         return 1
     }
-    if (member_ask == "4") {
+    if(member_ask == "4"){
+
+    }
+    if(member_ask == "5"){
+        const request = prompt("Enter ici le livre que vous souhaitez que le bibliotheque ce le procure ")
+        console.log("merci, votre demande a ete enregistre");
+    }
+    if (member_ask == "6") {
         console.log("A bientot!")
         biblio()
     }
