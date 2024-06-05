@@ -164,3 +164,18 @@ export function availableBookLists() {
     
 }
 
+export function insertBookToWishList(title, author, descriptions) {
+    pool.connect(function (err, client, done) {
+        const safeTitle = client.escapeLiteral(title);
+        const safeAuthor = client.escapeLiteral(author);
+        const safeDescriptions = client.escapeLiteral(descriptions);
+        const query = `
+            INSERT INTO wishList (title, author, descriptions)
+            VALUES (${safeTitle}, ${safeAuthor}, ${safeDescriptions})
+        `;
+        client.query(query, (err, res) => {
+            done();
+                console.table(res.rows);
+        });
+    });
+}
