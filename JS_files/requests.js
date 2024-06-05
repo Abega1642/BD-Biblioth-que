@@ -5,7 +5,7 @@ const { Pool } = pkg;
 let config = {
     user: 'postgres',
     database: 'gestion_bibliotheque',
-    password: 'ando',
+    password: 'razafindratelo',
     port: 5432,
 };
 
@@ -26,6 +26,30 @@ export function searchingBookByTitle(BookTitle) {
         })
     });
 };
+
+export function searchingBookByLanguage(language) {
+    if (language.toLowerCase() == 'allemand'){
+        language = 'german';
+    } else if (language.toLowerCase() == 'français' || language.toLowerCase() == 'frantsay' || language.toLowerCase() == 'francais' || language.toLowerCase() == 'französisch'){
+        language = 'french';
+    } else if (language.toLowerCase() == 'anglais' || language.toLowerCase() == 'angilisy' || language.toLowerCase() == 'englisch') {
+        language = 'english';
+    }
+    pool.connect(function (err, client) {
+        client.query(`
+        SELECT
+            title, 
+            number_of_pages, 
+            release_date, 
+            "status", 
+            "language" 
+            FROM book 
+            WHERE "language" ILIKE '%' || $1 || '%'`, [language], (err, res) => {
+            console.table(res["rows"]);
+        })
+    });
+};
+
 
 export function searchingBookByGenre() {
     pool.connect(function (err, client) {

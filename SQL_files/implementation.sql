@@ -50,7 +50,6 @@ create table section (
     id_section varchar(150) primary key
 );
 
-
 create table written_by (
     id_author varchar(150),
     id_book varchar(150),
@@ -70,6 +69,12 @@ create table borrow (
     end_date date not null,
     foreign key(id_book) references book(id_book),
     foreign key(id_member) references member(id_member)
+);
+create table wishList (
+    id_wishList SERIAL PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    author VARCHAR(150) NOT NULL,
+    Descriptions TEXT
 );
 
 INSERT INTO book VALUES
@@ -263,7 +268,6 @@ INSERT INTO book VALUES
 ('0000-db8-85a3-0000-0000-8a2e-0370-0188', 'Marketing', 800, '1956-01-01', 'Gauthier-Villars', 'French', 'Y', 'Un traité sur les théories et les pratiques du marketing.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0189', 'Finances', 720, '1963-01-01', 'Masson', 'French', 'Y', 'Un manuel sur les théories et les pratiques financières.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0190', 'Ressources humaines', 700, '1972-01-01', 'Hermann', 'French', 'Y', 'Un traité sur les théories et les pratiques de la gestion des ressources humaines.'),
-
 ('0000-db8-85a3-0000-0000-8a2e-0370-0191', 'Calculus of Probability', 540, '1968-01-01', 'Springer', 'English', 'Y', 'An advanced text on the calculus of probability, covering fundamental principles and practical applications.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0192', 'Algebra and Number Theory', 600, '1951-01-01', 'Springer', 'English', 'Y', 'A comprehensive introduction to algebra and number theory, exploring key concepts and theorems.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0193', 'Projective Geometry', 420, '1954-01-01', 'Springer', 'English', 'Y', 'A detailed examination of projective geometry, focusing on its foundational aspects and applications.'),
@@ -294,7 +298,6 @@ INSERT INTO book VALUES
 ('0000-db8-85a3-0000-0000-8a2e-0370-0218', 'Statistische Methoden', 320, '1970-01-01', 'Springer', 'German', 'Y', 'A detailed examination of statistical methods, focusing on both theoretical foundations and practical applications.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0219', 'Maßtheorie', 400, '1948-01-01', 'Springer', 'German', 'Y', 'A foundational text on measure theory, exploring its principles and diverse applications.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0220', 'Geometrie der Zahlen', 450, '1910-01-01', 'Springer', 'German', 'Y', 'An extensive study of the geometry of numbers, examining its principles and various applications.'),
-
 ('0000-db8-85a3-0000-0000-8a2e-0370-0221', 'Einführung in die Mengenlehre', 300, '1949-01-01', 'Springer', 'German', 'Y', 'Eine Einführung in die Mengenlehre, die grundlegende Konzepte und Anwendungen behandelt.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0222', 'Harmonische Analyse', 610, '1957-01-01', 'Springer', 'German', 'Y', 'Eine umfassende Untersuchung der harmonischen Analyse, die sowohl Grundkonzepte als auch fortgeschrittene Themen behandelt.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0223', 'Methoden der Linearen Algebra', 520, '1965-01-01', 'Springer', 'German', 'Y', 'Eine detaillierte Studie über Methoden der linearen Algebra, die theoretische Einsichten mit praktischen Techniken verbindet.'),
