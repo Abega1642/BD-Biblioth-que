@@ -680,10 +680,23 @@ INSERT INTO belong (id_book, id_genre) VALUES
 ('0000-db8-85a3-0000-0000-8a2e-0370-0199', '0000-db8-35g3-0000-0000-7x2e-0370-0011'), -- Fundamental Structures of Analysis
 ('0000-db8-85a3-0000-0000-8a2e-0370-0200', '0000-db8-35g3-0000-0000-7x2e-0370-0011'); -- Probability and Statistics
 
-
-
 INSERT INTO member VALUES
 ('0000-zm8-25a1-0000-0000-3m2v-0000-0001', 'Razafindratelo', 'Abegà', '2024-01-01', '2025-01-01','Etudiant en MI - UA et Informatique HEI', 'Ambohipanja LOT 185 AS', '+261 38 22 694 35', 'a.razafindratelo@gmail.com');
+
+create table borrow (
+    id_book varchar(255),
+    id_member varchar(150),
+    "start_date" date not null,
+    end_date date not null,
+    foreign key(id_book) references book(id_book),
+    foreign key(id_member) references member(id_member)
+);
+
+INSERT INTO borrow VALUES
+('0000-db8-85a3-0000-0000-8a2e-0370-0192', '0000-zm8-25a1-0000-0000-3m2v-0000-0001', '2024-06-03','2024-07-03'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0198', '0000-zm8-25a1-0000-0000-3m2v-0000-0001', '2024-04-05','2024-05-05'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0194', '0000-zm8-25a1-0000-0000-3m2v-0000-0001', '2024-01-20','2024-02-20'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0193', '0000-zm8-25a1-0000-0000-3m2v-0000-0001', '2024-05-17','2024-06-17');
 
 INSERT INTO section VALUES
 ('S-0000-0001'),
