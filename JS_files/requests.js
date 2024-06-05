@@ -21,7 +21,7 @@ function searchingBookByTitle(BookTitle) {
             "status", 
             "language" 
             FROM book 
-            WHERE title ilike "%$1%`, [BookTitle], (err, res) => {
+            WHERE title ILIKE '%' || $1 || '%'`, [BookTitle], (err, res) => {
             console.table(res["rows"]);
         })
     });
@@ -47,12 +47,29 @@ function searchingBookByGenre() {
     });
 };
 
+function searchingBookByASpecificGenre(genreName) {
+    pool.connect(function (err, client) {
+        client.query(`
+        SELECT
+            genre_name
+            title,
+            number_of_pages,
+            release_date,
+            "status",
+            "language"
+        FROM book INNER JOIN belong 
+            ON book.id_book = belong.id_book
+        INNER JOIN genre
+        ON genre.id_genre = belong.id_genre
+        WHERE genre_name = $1
+        GROUP BY genre_name;`,[genreName], (err, res) => {
+            console.table(res["rows"]);
+        })
+    });
+};
+
 function booksAndAuthor(authorName) {
     pool.connect(function (err, client) {
-        if (err) {
-            console.error('Erreur de connexion à la base de données :', err);
-            return;
-        }
         client.query(`
         SELECT 
             title, 
@@ -64,11 +81,7 @@ function booksAndAuthor(authorName) {
         INNER JOIN author 
             ON author.id_author = written_by.id_author 
         WHERE author.last_name = $1`, [authorName], (err, res) => {
-            if (err) {
-                console.error('Erreur lors de l\'exécution de la requête SQL :', err);
-                return;
-            }
             console.table(res.rows);
         });
     });
-}
+};
