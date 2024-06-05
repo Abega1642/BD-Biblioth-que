@@ -1,5 +1,7 @@
-const prompt = require("prompt-sync")();
-
+//const prompt = require("prompt-sync")();
+import chalk from "chalk";
+import PromptSync from "prompt-sync";
+const prompt = PromptSync()
 function biblio() {
     let ask = menu()
     if (ask == "1") {
@@ -38,7 +40,7 @@ function displayBookAsciiArt() {
                   +%%#+-:                                                                 
                    :.  
     `;
-    console.log(bookAsciiArt);
+    console.log(chalk.red(bookAsciiArt));
 }
 function displayStaffAsciiArt() {
     const staffAsciiArt = `
