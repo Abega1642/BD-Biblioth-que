@@ -11,7 +11,7 @@ create table book (
     release_date date not null,
     printing_house varchar(200),
     "language" varchar(100),
-    "status"varchar(1),
+    "status" varchar(1),
     synopsis text
 );
 create table edition (
@@ -40,7 +40,7 @@ create table member (
     membership_expiration date not null,
     occupation varchar(200) not null,
     "address" varchar(255) not null,
-    phone_number varchar(10) not null,
+    phone_number varchar(17) not null,
     email varchar(50) not null
 );
 

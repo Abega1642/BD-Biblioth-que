@@ -155,21 +155,11 @@ function availableBookLists() {
     pool.connect(function (err, client) {
         client.query(`
         SELECT 
-            id_member,
-            last_name,
-            first_name,
-            phone_number,
-            email,
-            "start_date",
-            title AS Book_Title
-        FROM book INNER JOIN borrow
-            ON book.id_book = borrow.id_book
-        INNER JOIN ON member
-            ON member.id_member = borrow.id_member
-        WHERE "start_date" = current_date;
+            title,
         `, (err, res) => {
             console.table(res.rows);
         });
     });
     
 }
+booksAndAuthor('George')
