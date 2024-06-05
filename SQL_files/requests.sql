@@ -58,6 +58,9 @@ INNER JOIN ON member
     ON member.id_member = borrow.id_member
 WHERE end_date = current_date;
 
+SELECT 
+    title,
+    
 
 select * from author where not exists
 (select * from written_by where author.id_author = written_by.id_author);
