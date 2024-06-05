@@ -132,7 +132,7 @@ function menu() {
 /**Pour les membres */
 
 function membresOption() {
-    console.log("Bienvenu cher membres.\n");
+    console.log(" ++++++++++++++++ Bienvenu cher membres. ++++++++++++++++\n");
     console.log("\t1-   Chercher un livre");
     console.log("\t2-   Afficher la liste des livres écrits par tel Auteur");
     console.log("\t3-   Afficher la liste des livres par genre");
@@ -189,11 +189,11 @@ function personnelAuth() {
 }
 
 function personnelOption() {
-    console.log("Bienvenue en tant que personnel");
-    console.log("1-Liste des empreinteurs");
-    console.log("2-Liste des livres encore disponnibles");
-    console.log("3-Liste des livres nos disponnibles");
-    console.log("4-Quitter");
+    console.log(" ++++++++++++++++ Bienvenue à vous cher personnel de la Bibliothèque  ++++++++++++++++");
+    console.log("\t1-Liste des empreinteurs");
+    console.log("\t2-Liste des livres encore disponnibles");
+    console.log("\t3-Liste des livres non disponnibles");
+    console.log("\t4-Quitter\n");
 
     const personnel_ask = prompt("Veillez choisir votre réponse: ");
     if (personnel_ask == "1") {
