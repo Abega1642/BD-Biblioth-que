@@ -5,7 +5,7 @@ create database gestion_bibliotheque;
 \c gestion_bibliotheque;
 
 create table book (
-    id_book varchar(255) primary key,
+    id_book varchar(150) primary key,
     title varchar(150) not null,
     number_of_pages int not null,
     release_date date not null,
@@ -15,7 +15,7 @@ create table book (
     synopsis text
 );
 create table edition (
-    id_edition varchar(100) primary key,
+    id_edition varchar(150) primary key,
     edition_name varchar(200) not null
 );
 
@@ -45,24 +45,24 @@ create table member (
 );
 
 create table section (
-    id_section varchar(200) primary key
+    id_section varchar(150) primary key
 );
 
 
 create table written_by (
     id_author varchar(150),
-    id_book varchar(255),
+    id_book varchar(150),
     foreign key(id_author) references author(id_author),
     foreign key(id_book) references book(id_book)
 );
 create table belong (
-    id_book varchar(255),
+    id_book varchar(150),
     id_genre varchar(150),
     foreign key (id_book) references book (id_book),
     foreign key (id_genre) references genre (id_genre)
 );
 create table borrow (
-    id_book varchar(255),
+    id_book varchar(150),
     id_member varchar(150),
     "start_date" date not null,
     end_date date not null,
@@ -385,7 +385,7 @@ INSERT INTO author VALUES
 ('0000-da8-85a7-0000-0000-8a2e-0370-0037', 'Hesse', 'Hermann', '1877-07-02', 'German'),
 ('0000-da8-85a7-0000-0000-8a2e-0370-0038', 'Grass', 'Günter', '1927-10-16', 'German'),
 ('0000-da8-85a7-0000-0000-8a2e-0370-0039', 'Brecht', 'Bertolt', '1898-02-10', 'German'),
-('0000-da8-85a7-0000-0000-8a2e-0370-0040', 'Müller', 'Herta', '1953-08-17', 'German');
+('0000-da8-85a7-0000-0000-8a2e-0370-0105', 'Müller', 'Herta', '1953-08-17', 'German');
 ('0000-da8-85a7-0000-0000-8a2e-0370-0040', 'Asimov', 'Isaac', '1920-01-02', 'American'),
 ('0000-da8-85a7-0000-0000-8a2e-0370-0041', 'Hemingway', 'Ernest', '1899-07-21', 'American'),
 ('0000-da8-85a7-0000-0000-8a2e-0370-0042', 'Fitzgerald', 'F. Scott', '1896-09-24', 'American'),
@@ -702,5 +702,3 @@ INSERT INTO section VALUES
 ('S-0000-0008'),
 ('S-0000-0009'),
 ('S-0000-0010');
-
-
