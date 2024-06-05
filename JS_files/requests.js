@@ -155,11 +155,12 @@ function availableBookLists() {
     pool.connect(function (err, client) {
         client.query(`
         SELECT 
-            title,
+            title
+        FROM book
         `, (err, res) => {
             console.table(res.rows);
         });
     });
     
 }
-booksAndAuthor('George')
+
