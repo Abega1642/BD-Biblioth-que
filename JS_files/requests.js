@@ -31,17 +31,17 @@ export function searchingBookByGenre() {
     pool.connect(function (err, client) {
         client.query(`
         SELECT
-            genre_name
-            title,
-            number_of_pages,
-            release_date,
-            "status",
-            "language"
+            genre.genre_name,
+            book.title,
+            book.number_of_pages,
+            book.release_date,
+            book."status",
+            book."language"
         FROM book INNER JOIN belong 
             ON book.id_book = belong.id_book
         INNER JOIN genre
         ON genre.id_genre = belong.id_genre
-        GROUP BY genre_name;`, (err, res) => {
+        GROUP BY genre_name,book.title,book.number_of_pages,book.release_date,book."status",book."language";`, (err, res) => {
             console.table(res["rows"]);
         })
     });
@@ -51,18 +51,18 @@ export function searchingBookByASpecificGenre(genreName) {
     pool.connect(function (err, client) {
         client.query(`
         SELECT
-            genre_name
-            title,
-            number_of_pages,
-            release_date,
-            "status",
-            "language"
+            genre.genre_name,
+            book.title,
+            book.number_of_pages,
+            book.release_date,
+            book."status",
+            book."language"
         FROM book INNER JOIN belong 
             ON book.id_book = belong.id_book
         INNER JOIN genre
         ON genre.id_genre = belong.id_genre
-        WHERE genre_name = $1
-        GROUP BY genre_name;`,[genreName], (err, res) => {
+        GROUP BY genre.genre_name,book.title,book.number_of_pages,book.release_date,book."status",book."language"
+        HAVING genre.genre_name = $1;`,[genreName], (err, res) => {
             console.table(res["rows"]);
         })
     });
@@ -90,16 +90,16 @@ export function borrowerList() {
     pool.connect(function (err, client) {
         client.query(`
         SELECT 
-            id_member,
-            last_name,
-            first_name,
-            phone_number,
-            email,
-            end_date,
-            title AS Book_Title
+            member.id_member,
+            member.last_name,
+            member.first_name,
+            member.phone_number,
+            member.email,
+            borrow.end_date,
+            book.title AS Book_Title
         FROM book INNER JOIN borrow
             ON book.id_book = borrow.id_book
-        INNER JOIN ON member
+        INNER JOIN member
             ON member.id_member = borrow.id_member
         `, (err, res) => {
             console.table(res.rows);
@@ -111,16 +111,16 @@ export function borrowerListEndToday() {
     pool.connect(function (err, client) {
         client.query(`
         SELECT 
-            id_member,
-            last_name,
-            first_name,
-            phone_number,
-            email,
-            end_date,
-            title AS Book_Title
+            member.id_member,
+            member.last_name,
+            member.first_name,
+            member.phone_number,
+            member.email,
+            borrow.end_date,
+            book.title AS Book_Title
         FROM book INNER JOIN borrow
             ON book.id_book = borrow.id_book
-        INNER JOIN ON member
+        INNER JOIN member
             ON member.id_member = borrow.id_member
         WHERE end_date = current_date;
         `, (err, res) => {
@@ -133,16 +133,16 @@ export function borrowerListStartToday() {
     pool.connect(function (err, client) {
         client.query(`
         SELECT 
-            id_member,
-            last_name,
-            first_name,
-            phone_number,
-            email,
-            "start_date",
-            title AS Book_Title
+            member.id_member,
+            member.last_name,
+            member.first_name,
+            member.phone_number,
+            member.email,
+            borrow."start_date",
+            book.title AS Book_Title
         FROM book INNER JOIN borrow
             ON book.id_book = borrow.id_book
-        INNER JOIN ON member
+        INNER JOIN member
             ON member.id_member = borrow.id_member
         WHERE "start_date" = current_date;
         `, (err, res) => {

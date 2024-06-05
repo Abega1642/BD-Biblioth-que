@@ -1,6 +1,7 @@
 //const prompt = require("prompt-sync")();
 import chalk from "chalk";
 import PromptSync from "prompt-sync";
+import { availableBookLists, booksAndAuthor, borrowerList, searchingBookByASpecificGenre, searchingBookByGenre, searchingBookByTitle } from './requests.js'
 const prompt = PromptSync()
 function biblio() {
     let ask = menu()
@@ -40,7 +41,7 @@ function displayBookAsciiArt() {
                   +%%#+-:                                                                 
                    :.  
     `;
-    console.log(chalk.red(bookAsciiArt));
+    console.log(chalk.green(bookAsciiArt));
 }
 function displayStaffAsciiArt() {
     const staffAsciiArt = `
@@ -79,10 +80,10 @@ function displayStaffAsciiArt() {
                @@@*                                                      +@@@             
                :=-                                                        ==.
     `;
-    console.log(staffAsciiArt);
+    console.log(chalk.green(staffAsciiArt));
 }
 function printMembersArt() {
-    console.log(`
+    console.log(chalk.redBright(`
                                         .:-====--:.                                       
                                     .=*#####*****##*=:                                    
                                   -*#*##**###**********=                                  
@@ -110,7 +111,7 @@ function printMembersArt() {
                    .##**#**#****************#********************###*#.                   
  .:                .##**##*********************#****************####*#.                   
  .:                 ==================================================.
-    `);
+    `));
 }
 
 
@@ -144,15 +145,18 @@ function membresOption() {
     console.log("\n");
     if (member_ask == "1") {
         const request = prompt('Enter le titre du livre : ');
+        searchingBookByTitle(request)
     }
     if (member_ask == "2") {
         const request = prompt('Enter le nom de l\'Auteur : ')
+        booksAndAuthor(request)
     }
     if (member_ask == "3") {
-        return 1
+        searchingBookByGenre()
     }
     if (member_ask == "4") {
-
+        const request = prompt('Entrer le genre : ')
+        searchingBookByASpecificGenre()
     }
     if (member_ask == "5") {
         const request = prompt("Enter ici le livre que vous souhaitez que le bibliothèque se le procure : ")
@@ -161,9 +165,6 @@ function membresOption() {
     if (member_ask == "6") {
         console.log("A bientot!\n")
         biblio()
-    }
-    else {
-        biblio();
     }
 }
 
@@ -181,7 +182,7 @@ function personnel() {
 
 function personnelAuth() {
     let password = prompt('Enter your password: ')
-    if (password == 'BooksAreTheWayToSuccess') {
+    if (password == 'books') {
         return true;
     } else {
         return false;
@@ -197,19 +198,16 @@ function personnelOption() {
 
     const personnel_ask = prompt("Veillez choisir votre réponse: ");
     if (personnel_ask == "1") {
-        return;
+        borrowerList()
     }
     if (personnel_ask == "2") {
-        return;
+        availableBookLists()
     }
     if (personnel_ask == "3") {
         return;
     }
     if (personnel_ask == "4") {
         biblio();
-    }
-    else {
-        biblio()
     }
 }
 displayBookAsciiArt();
