@@ -1,4 +1,4 @@
-const pg = require('pg')
+import { Pool } from 'pg';
 
 let config = {
     user: 'postgres',
@@ -7,7 +7,7 @@ let config = {
     port: 5432,
 };
 
-let pool = new pg.Pool(config);
+let pool = new Pool(config);
 
 function availableBooks() {
     pool.connect(function (err, client) {
