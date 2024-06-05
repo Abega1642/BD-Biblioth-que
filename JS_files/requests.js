@@ -9,9 +9,9 @@ let config = {
 
 let pool = new pg.Pool(config);
 
-function availableBooks() {
+function searchingBookByTitle(BookTitle) {
     pool.connect(function (err, client) {
-        client.query('SELECT title, number_of_pages, release_date, "status", "language" FROM book', (err, res) => {
+        client.query(`SELECT title, number_of_pages, release_date, "status", "language" FROM book WHERE title ilike "%$1%`, [BookTitle], (err, res) => {
             console.table(res["rows"]);
         })
     });

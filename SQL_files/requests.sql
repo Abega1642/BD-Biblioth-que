@@ -4,7 +4,7 @@ SELECT
     release_date, 
     "status", 
     "language" 
-FROM book;
+FROM book WHERE title ilike "%...%";
 
 SELECT 
     title,
