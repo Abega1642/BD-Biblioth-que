@@ -345,13 +345,100 @@ INSERT INTO book VALUES
 
 
 
-insert into author values
-('a', 'George', 'hey', '1990-08-15', 'Malagasy'),
-('b', 'Georgee', 'hey', '1990-08-15', 'Malagasy'),
-('c', 'Georgeee', 'hey', '1990-08-15', 'Malagasy');
-insert into written_by values
-('a', 'a'),
-('b','b');
+INSERT INTO author VALUES
+('0000-da8-85a7-0000-0000-8a2e-0370-0001', 'Hemingway', 'Ernest', '1899-07-21', 'American'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0002', 'Fitzgerald', 'F. Scott', '1896-09-24', 'American'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0003', 'Steinbeck', 'John', '1902-02-27', 'American'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0004', 'Twain', 'Mark', '1835-11-30', 'American'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0005', 'Hawthorne', 'Nathaniel', '1804-07-04', 'American'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0006', 'Whitman', 'Walt', '1819-05-31', 'American'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0007', 'Poe', 'Edgar Allan', '1809-01-19', 'American'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0008', 'Melville', 'Herman', '1819-08-01', 'American'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0009', 'Dickinson', 'Emily', '1830-12-10', 'American'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0011', 'Hugo', 'Victor', '1802-02-26', 'French'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0012', 'Dumas', 'Alexandre', '1802-07-24', 'French'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0013', 'Balzac', 'Honoré de', '1799-05-20', 'French'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0014', 'Zola', 'Émile', '1840-04-02', 'French'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0015', 'Camus', 'Albert', '1913-11-07', 'French'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0016', 'Proust', 'Marcel', '1871-07-10', 'French'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0017', 'Flaubert', 'Gustave', '1821-12-12', 'French'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0018', 'Voltaire', NULL, '1694-11-21', 'French'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0019', 'Molière', NULL, '1622-01-15', 'French'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0020', 'Rousseau', 'Jean-Jacques', '1712-06-28', 'French'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0021', 'Rajaonarimanana', 'Jean-Luc', '1964-03-01', 'Malagasy'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0022', 'Rakotomalala', 'Eugène', '1910-12-24', 'Malagasy'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0023', 'Rabe', 'Ny Avana', '1957-08-05', 'Malagasy'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0024', 'Rasamoelina', 'Elie', '1962-05-12', 'Malagasy'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0025', 'Rakotozafy', 'Andrianary', '1933-07-12', 'Malagasy'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0026', 'Randriamihaja', 'Norbert', '1937-10-22', 'Malagasy'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0027', 'Rakotomalala', 'Marcellin', '1930-06-16', 'Malagasy'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0028', 'Razafindratsima', 'Marie-Thérèse', '1958-09-18', 'Malagasy'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0029', 'Rakotozandriny', 'Richard', '1969-12-31', 'Malagasy'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0030', 'Razafy', 'Jean Joseph', '1940-04-25', 'Malagasy'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0031', 'Goethe', 'Johann Wolfgang von', '1749-08-28', 'German'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0032', 'Kafka', 'Franz', '1883-07-03', 'German'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0033', 'Schiller', 'Friedrich', '1759-11-10', 'German'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0034', 'Nietzsche', 'Friedrich', '1844-10-15', 'German'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0035', 'Mann', 'Thomas', '1875-06-06', 'German'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0036', 'Heine', 'Heinrich', '1797-12-13', 'German'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0037', 'Hesse', 'Hermann', '1877-07-02', 'German'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0038', 'Grass', 'Günter', '1927-10-16', 'German'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0039', 'Brecht', 'Bertolt', '1898-02-10', 'German'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0040', 'Müller', 'Herta', '1953-08-17', 'German');
+('0000-da8-85a7-0000-0000-8a2e-0370-0040', 'Asimov', 'Isaac', '1920-01-02', 'American'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0041', 'Hemingway', 'Ernest', '1899-07-21', 'American'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0042', 'Fitzgerald', 'F. Scott', '1896-09-24', 'American'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0043', 'King', 'Stephen', '1947-09-21', 'American'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0049', 'Wolfe', 'Tom', '1900-10-03', 'American'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0052', 'Proust', 'Marcel', '1871-07-10', 'French'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0058', 'Verne', 'Jules', '1828-02-08', 'French'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0067', 'Heine', 'Heinrich', '1797-12-13', 'German'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0068', 'Böll', 'Heinrich', '1917-12-21', 'German'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0069', 'Musil', 'Robert', '1880-11-06', 'German'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0070', 'Sartre', 'Jean-Paul', '1905-06-21', 'French'),
+('0000-da8-85a7-0000-0000-8a2e-0370-0071', 'Pascal', 'Blaise', '1623-06-19', 'French');
+
+INSERT INTO written_by (id_author, id_book) VALUES
+('0000-da8-85a7-0000-0000-8a2e-0370-0009', '0000-db8-85a3-0000-0000-8a2e-0370-0001'), -- Emily Dickinson, To Kill a Mockingbird
+('0000-da8-85a7-0000-0000-8a2e-0370-0017', '0000-db8-85a3-0000-0000-8a2e-0370-0002'), -- Victor Hugo, 1984
+('0000-da8-85a7-0000-0000-8a2e-0370-0018', '0000-db8-85a3-0000-0000-8a2e-0370-0003'), -- Alexandre Dumas, The Great Gatsby
+('0000-da8-85a7-0000-0000-8a2e-0370-0013', '0000-db8-85a3-0000-0000-8a2e-0370-0004'), -- Honoré de Balzac, The Catcher in the Rye
+('0000-da8-85a7-0000-0000-8a2e-0370-0001', '0000-db8-85a3-0000-0000-8a2e-0370-0005'), -- Ernest Hemingway, Pride and Prejudice
+('0000-da8-85a7-0000-0000-8a2e-0370-0002', '0000-db8-85a3-0000-0000-8a2e-0370-0006'), -- F. Scott Fitzgerald, To the Lighthouse
+('0000-da8-85a7-0000-0000-8a2e-0370-0003', '0000-db8-85a3-0000-0000-8a2e-0370-0007'), -- John Steinbeck, Moby-Dick
+('0000-da8-85a7-0000-0000-8a2e-0370-0004', '0000-db8-85a3-0000-0000-8a2e-0370-0008'), -- Mark Twain, Ulysses
+('0000-da8-85a7-0000-0000-8a2e-0370-0005', '0000-db8-85a3-0000-0000-8a2e-0370-0009'), -- Nathaniel Hawthorne, The Sound and the Fury
+('0000-da8-85a7-0000-0000-8a2e-0370-0006', '0000-db8-85a3-0000-0000-8a2e-0370-0010'), -- Walt Whitman, The Picture of Dorian Gray
+('0000-da8-85a7-0000-0000-8a2e-0370-0007', '0000-db8-85a3-0000-0000-8a2e-0370-0011'), -- Edgar Allan Poe, War and Peace
+('0000-da8-85a7-0000-0000-8a2e-0370-0008', '0000-db8-85a3-0000-0000-8a2e-0370-0012'), -- Herman Melville, Crime and Punishment
+('0000-da8-85a7-0000-0000-8a2e-0370-0009', '0000-db8-85a3-0000-0000-8a2e-0370-0013'), -- Emily Dickinson, The Brothers Karamazov
+('0000-da8-85a7-0000-0000-8a2e-0370-0011', '0000-db8-85a3-0000-0000-8a2e-0370-0014'), -- Victor Hugo, Anna Karenina
+('0000-da8-85a7-0000-0000-8a2e-0370-0012', '0000-db8-85a3-0000-0000-8a2e-0370-0015'), -- Alexandre Dumas, Madame Bovary
+('0000-da8-85a7-0000-0000-8a2e-0370-0013', '0000-db8-85a3-0000-0000-8a2e-0370-0016'), -- Honoré de Balzac, The Adventures of Huckleberry Finn
+('0000-da8-85a7-0000-0000-8a2e-0370-0014', '0000-db8-85a3-0000-0000-8a2e-0370-0017'), -- Émile Zola, Don Quixote
+('0000-da8-85a7-0000-0000-8a2e-0370-0015', '0000-db8-85a3-0000-0000-8a2e-0370-0018'), -- Albert Camus, Les Misérables
+('0000-da8-85a7-0000-0000-8a2e-0370-0016', '0000-db8-85a3-0000-0000-8a2e-0370-0019'), -- Marcel Proust, The Iliad
+('0000-da8-85a7-0000-0000-8a2e-0370-0017', '0000-db8-85a3-0000-0000-8a2e-0370-0020'), -- Gustave Flaubert, The Odyssey
+('0000-da8-85a7-0000-0000-8a2e-0370-0018', '0000-db8-85a3-0000-0000-8a2e-0370-0021'), -- Voltaire, One Hundred Years of Solitude
+('0000-da8-85a7-0000-0000-8a2e-0370-0019', '0000-db8-85a3-0000-0000-8a2e-0370-0022'), -- Molière, The Divine Comedy
+('0000-da8-85a7-0000-0000-8a2e-0370-0020', '0000-db8-85a3-0000-0000-8a2e-0370-0023'), -- Jean-Jacques Rousseau, The Trial 
+('0000-da8-85a7-0000-0000-8a2e-0370-0041', '0000-db8-85a3-0000-0000-8a2e-0370-0040'), -- Hemingway - The Old Man and the Sea
+('0000-da8-85a7-0000-0000-8a2e-0370-0042', '0000-db8-85a3-0000-0000-8a2e-0370-0041'), -- Fitzgerald - The Bell Jar
+('0000-da8-85a7-0000-0000-8a2e-0370-0052', '0000-db8-85a3-0000-0000-8a2e-0370-0063'), -- Proust - Plateforme
+('0000-da8-85a7-0000-0000-8a2e-0370-0058', '0000-db8-85a3-0000-0000-8a2e-0370-0010'), -- Verne - Journey to the Center of the Earth
+('0000-da8-85a7-0000-0000-8a2e-0370-0067', '0000-db8-85a3-0000-0000-8a2e-0370-0056'), -- Heine - Le Lion
+('0000-da8-85a7-0000-0000-8a2e-0370-0068', '0000-db8-85a3-0000-0000-8a2e-0370-0065'), -- Böll - Les Âmes grises
+('0000-da8-85a7-0000-0000-8a2e-0370-0069', '0000-db8-85a3-0000-0000-8a2e-0370-0066'), -- Musil - HHhH
+('0000-da8-85a7-0000-0000-8a2e-0370-0070', '0000-db8-85a3-0000-0000-8a2e-0370-0051'), -- Sartre - The Stranger 
+('0000-da8-85a7-0000-0000-8a2e-0370-0011', '0000-db8-85a3-0000-0000-8a2e-0370-0039'), -- Hugo - The Scarlet Letter
+('0000-da8-85a7-0000-0000-8a2e-0370-0012', '0000-db8-85a3-0000-0000-8a2e-0370-0038'), -- Dumas - The Count of Monte Cristo
+('0000-da8-85a7-0000-0000-8a2e-0370-0013', '0000-db8-85a3-0000-0000-8a2e-0370-0036'), -- Balzac - A Tale of Two Cities
+('0000-da8-85a7-0000-0000-8a2e-0370-0014', '0000-db8-85a3-0000-0000-8a2e-0370-0045'), -- Zola - Lord of the Flies
+('0000-da8-85a7-0000-0000-8a2e-0370-0015', '0000-db8-85a3-0000-0000-8a2e-0370-0052'), -- Camus - The Stranger
+('0000-da8-85a7-0000-0000-8a2e-0370-0016', '0000-db8-85a3-0000-0000-8a2e-0370-0061'), -- Proust - La Plage
+('0000-da8-85a7-0000-0000-8a2e-0370-0017', '0000-db8-85a3-0000-0000-8a2e-0370-0081'), -- Flaubert - La Horde du Contrevent
+('0000-da8-85a7-0000-0000-8a2e-0370-0040', '0000-db8-85a3-0000-0000-8a2e-0370-0053'), -- Asimov - La Vie devant soi
+('0000-da8-85a7-0000-0000-8a2e-0370-0071', '0000-db8-85a3-0000-0000-8a2e-0370-0054'); -- Pascal - Le Soleil des Scorta
 
 select * from author where not exists
 (select * from written_by where author.id_author = written_by.id_author);
