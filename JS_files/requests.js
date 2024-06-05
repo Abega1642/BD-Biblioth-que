@@ -5,13 +5,13 @@ const { Pool } = pkg;
 let config = {
     user: 'postgres',
     database: 'gestion_bibliotheque',
-    password: 'razafindratelo',
+    password: 'ando',
     port: 5432,
 };
 
 const pool = new Pool(config);
 
-function searchingBookByTitle(BookTitle) {
+export function searchingBookByTitle(BookTitle) {
     pool.connect(function (err, client) {
         client.query(`
         SELECT
@@ -27,7 +27,7 @@ function searchingBookByTitle(BookTitle) {
     });
 };
 
-function searchingBookByGenre() {
+export function searchingBookByGenre() {
     pool.connect(function (err, client) {
         client.query(`
         SELECT
@@ -47,7 +47,7 @@ function searchingBookByGenre() {
     });
 };
 
-function searchingBookByASpecificGenre(genreName) {
+export function searchingBookByASpecificGenre(genreName) {
     pool.connect(function (err, client) {
         client.query(`
         SELECT
@@ -68,7 +68,7 @@ function searchingBookByASpecificGenre(genreName) {
     });
 };
 
-function booksAndAuthor(authorName) {
+export function booksAndAuthor(authorName) {
     pool.connect(function (err, client) {
         client.query(`
         SELECT 
@@ -86,7 +86,7 @@ function booksAndAuthor(authorName) {
     });
 };
 
-function borrowerList() {
+export function borrowerList() {
     pool.connect(function (err, client) {
         client.query(`
         SELECT 
@@ -107,7 +107,7 @@ function borrowerList() {
     });
 }
 
-function borrowerListEndToday() {
+export function borrowerListEndToday() {
     pool.connect(function (err, client) {
         client.query(`
         SELECT 
@@ -129,7 +129,7 @@ function borrowerListEndToday() {
     });
 }
 
-function borrowerListStartToday() {
+export function borrowerListStartToday() {
     pool.connect(function (err, client) {
         client.query(`
         SELECT 
@@ -151,7 +151,7 @@ function borrowerListStartToday() {
     });
 }
 
-function availableBookLists() {
+export function availableBookLists() {
     pool.connect(function (err, client) {
         client.query(`
         SELECT 

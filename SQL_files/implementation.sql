@@ -1,3 +1,5 @@
+\c postgres
+
 drop database if exists gestion_bibliotheque;
 
 create database gestion_bibliotheque;
