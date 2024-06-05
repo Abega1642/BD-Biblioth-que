@@ -135,9 +135,9 @@ function membresOption() {
     console.log("Bienvenu cher membres.\n");
     console.log("\t1-   Chercher un livre");
     console.log("\t2-   Afficher la liste des livres écrits par tel Auteur");
-    console.log("\t3-   Afficher la liste des livres par categorie");
-    console.log("\t4-   Chercher des livres par categorie");
-    console.log("\t5-   Certains livres ne se trouvent pas dans la bibliotheque, voulez vous que le bibliotheque les possedent?");
+    console.log("\t3-   Afficher la liste des livres par genre");
+    console.log("\t4-   Chercher des livres par genre");
+    console.log("\t5-   Suggerer un livre non disponible");
     console.log("\t6-   Quitter\n")
 
     const member_ask = prompt("Veillez saisir votre reponse : ");
