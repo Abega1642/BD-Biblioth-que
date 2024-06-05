@@ -526,6 +526,9 @@ INSERT INTO belong (id_book, id_genre) VALUES
 ('0000-db8-85a3-0000-0000-8a2e-0370-0095', '0000-db8-35g3-0000-0000-7x2e-0370-0006'); -- Berlin Alexanderplatz (Mystery)
 
 
+INSERT INTO member VALUES
+('0000-zm8-25a1-0000-0000-3m2v-0000-0001', 'Razafindratelo', 'Abegà', '2024-01-01', '2025-01-01','Etudiant en MI - UA et Informatique HEI', 'Ambohipanja LOT 185 AS', '+261 38 22 694 35', 'a.razafindratelo@gmail.com');
+
 
 select * from author where not exists
 (select * from written_by where author.id_author = written_by.id_author);
