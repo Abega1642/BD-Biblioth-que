@@ -1,7 +1,7 @@
 //const prompt = require("prompt-sync")();
 import chalk from "chalk";
 import PromptSync from "prompt-sync";
-import { TwemtyMostActivMembers, TwemtyMostBorrowedBooks, TwemtyMostWishedBooks, availableBookLists, booksAndAuthor, borrowerList, insertBookToWishList, nonBorrowable, numberOfAvailableBooks, numberOfmembers, searchingBookByASpecificGenre, searchingBookByGenre, searchingBookByLanguage, searchingBookByTitle } from './requests.js'
+import { TwemtyMostActivMembers, TwemtyMostBorrowedBooks, TwemtyMostWishedBooks, availableBookLists, booksAndAuthor, borrowerList, insertBookToWishList, insertBookToWishList2, nonBorrowable, numberOfAvailableBooks, numberOfmembers, searchingBookByASpecificGenre, searchingBookByGenre, searchingBookByLanguage, searchingBookByTitle } from './requests.js'
 const prompt = PromptSync()
 function biblio() {
     let ask = menu()
@@ -161,11 +161,15 @@ function membresOption() {
         searchingBookByASpecificGenre(request)
     }
     if (member_ask == "5") {
-        const title = prompt("Veuillez saisir le titre du livre au quel vous souhaitez que la bibliothèque possède : \n\t---→ ")
-        const author = prompt("Veuillez saisir le nom de l'auteur du livre : \n\t---→ ");
-        const descriptions = prompt("Veuillez saisir une petite description du livre : \n\t---→ ");
-        const id = prompt("Veuillez saisir votre identifiant : \n\t---→ ");
-        insertBookToWishList(title, author, descriptions, id);
+        const title = prompt("Veuillez saisir le titre du livre au quel vous souhaitez que la bibliothèque possède : ---→ ")
+        console.log('\n\t');
+        const author = prompt("Veuillez saisir le nom de l'auteur du livre : ---→ ");
+        console.log('\n\t');
+        const descriptions = prompt("Veuillez saisir une petite description du livre : ---→ ");
+        console.log('\n\t');
+        const id = prompt("Veuillez saisir votre identifiant : ---→ ");
+        console.log('\n\t');
+        insertBookToWishList2(title, author, descriptions, id);
     }
     if (member_ask == "6") {
         TwemtyMostBorrowedBooks();

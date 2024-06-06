@@ -194,9 +194,10 @@ export function insertBookToWishList(title, author, descriptions, id_member) {
         const safeTitle = client.escapeLiteral(title);
         const safeAuthor = client.escapeLiteral(author);
         const safeDescriptions = client.escapeLiteral(descriptions);
+        const safeIds = client.escapeLiteral(id_member);
         const query = `
             INSERT INTO wishList (title, author, descriptions)
-            VALUES (${safeTitle}, ${safeAuthor}, ${safeDescriptions}, ${id_member})
+            VALUES (${safeTitle}, ${safeAuthor}, ${safeDescriptions}, ${safeIds})
         `;
         client.query(query, (err, res) => {
                 console.table(res.rows);
