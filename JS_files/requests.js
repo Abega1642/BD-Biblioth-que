@@ -105,7 +105,7 @@ export function booksAndAuthor(authorName) {
             ON book.id_book = written_by.id_book 
         INNER JOIN author 
             ON author.id_author = written_by.id_author 
-        WHERE author.last_name = $1`, [authorName], (err, res) => {
+        WHERE author.last_name ILIKE '%' || $1 ||'%'`, [authorName], (err, res) => {
             console.table(res.rows);
         });
     });
@@ -234,7 +234,7 @@ export function insertANewMember(id_member, last_name, first_name, date_of_membe
             return;
         }
         const query = `
-            INSERT INTO wishList (title, author, descriptions, id_member)
+            INSERT INTO member 
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
         `;
         const values = [id_member, last_name, first_name, date_of_membership, membership_expiration, occupation, address, phone_number, email];

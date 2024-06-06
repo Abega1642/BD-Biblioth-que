@@ -121,7 +121,7 @@ function printMembersArt() {
  * menu
 */
 function menu() {
-    console.log(chalk.bgRed("\n------------------- BIENVENUE --------------------\n"));
+    console.log(chalk.bgGreen("\n------------------- BIENVENUE --------------------\n"));
     console.log("====================   MENU  ======================\n");
     console.log("\t1-   Membres");
     console.log("\t2-   Responsables\n");
@@ -133,7 +133,7 @@ function menu() {
 /**Pour les membres */
 
 function membresOption() {
-    console.log(chalk.bgRed(" ++++++++++++++++ Bienvenu cher membres. ++++++++++++++++\n"));
+    console.log(chalk.bgGreen(" ++++++++++++++++ Bienvenu cher membres. ++++++++++++++++\n"));
     console.log("\t1-   Chercher un livre");
     console.log("\t2-   Afficher la liste des livres écrits par tel Auteur");
     console.log("\t3-   Afficher la liste des livres par genre");
