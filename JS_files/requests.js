@@ -5,7 +5,7 @@ const { Pool } = pkg;
 let config = {
     user: 'postgres',
     database: 'gestion_bibliotheque',
-    password: 'razafindratelo',
+    password: 'ando',
     port: 5432,
 };
 
