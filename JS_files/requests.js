@@ -227,6 +227,27 @@ export function insertBookToWishList2(title, author, descriptions, id_member) {
         });
     });
 }
+export function insertANewMember(id_member, last_name, first_name, date_of_membership, membership_expiration, occupation, address, phone_number, email) {
+    pool.connect(function (err, client, done) {
+        if (err) {
+            console.error('Erreur lors de la connexion à la base de données :', err);
+            return;
+        }
+        const query = `
+            INSERT INTO wishList (title, author, descriptions, id_member)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+        `;
+        const values = [id_member, last_name, first_name, date_of_membership, membership_expiration, occupation, address, phone_number, email];
+        client.query(query, values, (err, res) => {
+            done();
+            if (err) {
+                console.error('Erreur lors de la requête :', err);
+                return;
+            }
+            console.log("\t------ Merci, le membre a bien été enregistrée ------\n");
+        });
+    });
+}
 
 export function nonBorrowable() {
     pool.connect(function (err, client) {

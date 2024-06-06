@@ -1,7 +1,7 @@
 //const prompt = require("prompt-sync")();
 import chalk from "chalk";
 import PromptSync from "prompt-sync";
-import { TwemtyMostActivMembers, TwemtyMostBorrowedBooks, TwemtyMostWishedBooks, availableBookLists, booksAndAuthor, borrowerList, insertBookToWishList, insertBookToWishList2, nonBorrowable, numberOfAvailableBooks, numberOfmembers, searchingBookByASpecificGenre, searchingBookByGenre, searchingBookByLanguage, searchingBookByTitle } from './requests.js'
+import { TwemtyMostActivMembers, TwemtyMostBorrowedBooks, TwemtyMostWishedBooks, availableBookLists, booksAndAuthor, borrowerList, insertANewMember, insertBookToWishList, insertBookToWishList2, nonBorrowable, numberOfAvailableBooks, numberOfmembers, searchingBookByASpecificGenre, searchingBookByGenre, searchingBookByLanguage, searchingBookByTitle } from './requests.js'
 const prompt = PromptSync()
 function biblio() {
     let ask = menu()
@@ -207,15 +207,16 @@ function personnelAuth() {
 
 function personnelOption() {
     console.log(" ++++++++++++++++ Bienvenue à vous cher personnel de la Bibliothèque  ++++++++++++++++");
-    console.log("\t1-Liste des empreinteurs");
-    console.log("\t2-Liste des livres encore disponnibles");
-    console.log("\t3-Liste des livres non empruntable");
-    console.log("\t4-Voir le nombre total des livres");
-    console.log("\t5-Voir le nombre total des members de la bibliothèque");
-    console.log("\t6-Liste les top 20 des livres les plus empruntés par les membres");
-    console.log("\t7-Liste les top 20 des membres les plus actifs");
-    console.log("\t8-Liste des top 20 des livres les plus demandés");
-    console.log("\t9-Quitter\n");
+    console.log("\t1-   Liste des empreinteurs");
+    console.log("\t2-   Liste des livres encore disponnibles");
+    console.log("\t3-   Liste des livres non empruntable");
+    console.log("\t4-   Voir le nombre total des livres");
+    console.log("\t5-   Voir le nombre total des members de la bibliothèque");
+    console.log("\t6-   Liste les top 20 des livres les plus empruntés par les membres");
+    console.log("\t7-   Liste les top 20 des membres les plus actifs");
+    console.log("\t8-   Liste des top 20 des livres les plus demandés");
+    console.log("\t9-   Iinserer un nouveau membre");
+    console.log("\t10-   Quitter\n");
 
     const personnel_ask = prompt("Veillez choisir votre réponse: ");
     if (personnel_ask == "1") {
@@ -243,6 +244,18 @@ function personnelOption() {
         TwemtyMostWishedBooks();
     }
     if (personnel_ask == "9") {
+        const id_member = prompt("Saisir le id_member du nouveau membre : ----> ")
+        const last_name = prompt("Saisir le le nomo du nouveau membre : ----> ")
+        const first_name = prompt("Saisir le prénom (s'il y en a) du nouveau membre (Sinon presser entrer): ----> ")
+        const date_of_membership = prompt("Saisir la date du début : ----> ")
+        const membership_expiration = prompt("Saisir la date de fin : ----> ")
+        const occupation = prompt("Saisir l'occupation du nouveau membre : ----> ")
+        const address = prompt("Saisir l'adressse du nouveau membre : ----> ")
+        const phone_number = prompt("Saisir le numéro téléphone du nouveau membre : ----> ")
+        const email = prompt("Saisir le email du nouveau membre : ----> ")
+        insertANewMember(id_member, last_name, first_name, date_of_membership, membership_expiration, occupation, address, phone_number, email);
+    }
+    if (personnel_ask == "10") {
         biblio();
     }
 }
