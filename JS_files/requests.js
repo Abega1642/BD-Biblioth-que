@@ -85,9 +85,9 @@ export function searchingBookByASpecificGenre(genreName) {
             ON book.id_book = belong.id_book
         INNER JOIN genre
         ON genre.id_genre = belong.id_genre
-        GROUP BY genre.genre_name,book.title,book.number_of_pages,book.release_date,book."status",book."language"
-        HAVING genre.genre_name ILIKE '%' || $1 || '%'`,[genreName], (err, res) => {
-            console.table(res["rows"]);
+        GROUP BY "genre".genre_name,"book".title,"book".number_of_pages,"book".release_date,"book"."status","book"."language"
+        HAVING "genre".genre_name ILIKE '%' || $1 || '%'`,[genreName], (err, res) => {
+        console.table(res["rows"]);
         })
     });
 };

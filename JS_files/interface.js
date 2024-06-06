@@ -158,7 +158,7 @@ function membresOption() {
     }
     if (member_ask == "4") {
         const request = prompt('Entrer le genre : ')
-        searchingBookByASpecificGenre()
+        searchingBookByASpecificGenre(request)
     }
     if (member_ask == "5") {
         const title = prompt("Veuillez saisir le titre du livre au quel vous souhaitez que la bibliothèque possède : \n\t---→ ")
