@@ -340,11 +340,22 @@ export function TwemtyMostWishedBooks() {
 };
 
 export function deleteMember(id_member) {
-    pool.connect(function (err, client) {
+    pool.connect(function (err, client, done) {
+        if (err) {
+            console.error('Error connecting to the database:', err);
+            return;
+        }
+
         client.query(`
         DELETE FROM member WHERE id_member = $1
         `, [id_member], (err, res) => {
-            console.table(res.rows);
+            done(); // release the client back to the pool
+
+            if (err) {
+                console.error('Error executing query:', err);
+            } else {
+                console.log(`Member with id ${id_member} deleted successfully.`);
+            }
         });
     });
 }
