@@ -216,7 +216,8 @@ function personnelOption() {
     console.log("\t7-   Liste les top 20 des membres les plus actifs");
     console.log("\t8-   Liste des top 20 des livres les plus demandés");
     console.log("\t9-   Iinserer un nouveau membre");
-    console.log("\t10-   Quitter\n");
+    console.log("\t10-  Supprimer un membre");
+    console.log("\t11-   Quitter\n");
 
     const personnel_ask = prompt("Veillez choisir votre réponse: ");
     if (personnel_ask == "1") {
@@ -254,8 +255,10 @@ function personnelOption() {
         const phone_number = prompt("Saisir le numéro téléphone du nouveau membre : ----> ")
         const email = prompt("Saisir le email du nouveau membre : ----> ")
         insertANewMember(id_member, last_name, first_name, date_of_membership, membership_expiration, occupation, address, phone_number, email);
+    }if(personnel_ask == "11"){
+        
     }
-    if (personnel_ask == "10") {
+    if (personnel_ask == "11") {
         biblio();
     }
 }
