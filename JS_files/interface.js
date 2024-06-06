@@ -1,7 +1,7 @@
 //const prompt = require("prompt-sync")();
 import chalk from "chalk";
 import PromptSync from "prompt-sync";
-import { TwemtyMostActivMembers, TwemtyMostBorrowedBooks, TwemtyMostWishedBooks, availableBookLists, booksAndAuthor, borrowerList, insertBookToWishList, nonBorrowable, numberOfAvailableBooks, numberOfmembers, searchingBookByASpecificGenre, searchingBookByGenre, searchingBookByTitle } from './requests.js'
+import { TwemtyMostActivMembers, TwemtyMostBorrowedBooks, TwemtyMostWishedBooks, availableBookLists, booksAndAuthor, borrowerList, insertBookToWishList, nonBorrowable, numberOfAvailableBooks, numberOfmembers, searchingBookByASpecificGenre, searchingBookByGenre, searchingBookByLanguage, searchingBookByTitle } from './requests.js'
 const prompt = PromptSync()
 function biblio() {
     let ask = menu()
@@ -140,7 +140,8 @@ function membresOption() {
     console.log("\t4-   Chercher des livres par genre");
     console.log("\t5-   Suggerer un livre non disponible")
     console.log("\t6-   Liste les top 20 des livres les plus empruntés par les membres");
-    console.log("\t7-   Quitter\n")
+    console.log("\t7-   Chercher des livres par language")
+    console.log("\t8-   Quitter\n")
 
     const member_ask = prompt("Veillez saisir votre reponse : ");
     console.log("\n");
@@ -169,7 +170,11 @@ function membresOption() {
     if (member_ask == "6") {
         TwemtyMostBorrowedBooks();
     }
-    if (member_ask == "7") {
+    if(member_ask == '7'){
+        const request = prompt('Quelle langue voulez vous? ')
+        searchingBookByLanguage(request)
+    }
+    if (member_ask == "8") {
         console.log("A bientot!\n")
         biblio();
     }
