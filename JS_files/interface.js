@@ -215,7 +215,7 @@ function personnelOption() {
     console.log("\t6-   Liste les top 20 des livres les plus empruntés par les membres");
     console.log("\t7-   Liste les top 20 des membres les plus actifs");
     console.log("\t8-   Liste des top 20 des livres les plus demandés");
-    console.log("\t9-   Iinserer un nouveau membre");
+    console.log("\t9-   Inserer un nouveau membre");
     console.log("\t10-  Supprimer un membre");
     console.log("\t11-   Quitter\n");
 
@@ -246,12 +246,12 @@ function personnelOption() {
     }
     if (personnel_ask == "9") {
         const id_member = prompt("Saisir le id_member du nouveau membre : ----> ")
-        const last_name = prompt("Saisir le le nomo du nouveau membre : ----> ")
+        const last_name = prompt("Saisir le le nom du nouveau membre : ----> ")
         const first_name = prompt("Saisir le prénom (s'il y en a) du nouveau membre (Sinon presser entrer): ----> ")
         const date_of_membership = prompt("Saisir la date du début : ----> ")
         const membership_expiration = prompt("Saisir la date de fin : ----> ")
         const occupation = prompt("Saisir l'occupation du nouveau membre : ----> ")
-        const address = prompt("Saisir l'adressse du nouveau membre : ----> ")
+        const address = prompt("Saisir l'adresse du nouveau membre : ----> ")
         const phone_number = prompt("Saisir le numéro téléphone du nouveau membre : ----> ")
         const email = prompt("Saisir le email du nouveau membre : ----> ")
         insertANewMember(id_member, last_name, first_name, date_of_membership, membership_expiration, occupation, address, phone_number, email);
