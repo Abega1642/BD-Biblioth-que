@@ -74,7 +74,9 @@ create table wishList (
     id_wishList SERIAL PRIMARY KEY,
     title VARCHAR(200) NOT NULL,
     author VARCHAR(150) NOT NULL,
-    Descriptions TEXT
+    Descriptions TEXT,
+    id_member VARCHAR(150),
+    FOREIGN KEY (id_member) REFERENCES member(id_member)
 );
 
 INSERT INTO book VALUES
@@ -212,7 +214,7 @@ INSERT INTO book VALUES
 ('0000-db8-85a3-0000-0000-8a2e-0370-0132', 'Der Name der Rose', 576, '1980-01-01', 'Hanser', 'German', 'Y', 'Un roman policier médiéval sur un moine franciscain qui enquête sur une série de meurtres dans une abbaye.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0133', 'Die verlorene Ehre der Katharina Blum', 140, '1974-01-01', 'Suhrkamp', 'German', 'Y', 'Un roman sur une femme accusée à tort de complicité avec un criminel, critiquant les médias sensationnalistes et la violation des droits individuels.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0134', 'Das Versprechen', 160, '1958-01-01', 'Diogenes', 'German', 'Y', 'Un roman policier sur un détective qui promet de retrouver le meurtrier d''une jeune fille.'),
-('0000-db8-85a3-0000-0000-8a2e-0370-0135', 'Der Vorleser', 208, '1995-01-01', 'Diogenes', 'German', 'Y', 'Un roman sur une histoire d''amour entre un jeune homme et une femme plus âgée avec un passé mystérieux.'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0135', 'Der Vorleser', 208, '1995-01-01', 'Diogenes', 'German', 'N', 'Un roman sur une histoire d''amour entre un jeune homme et une femme plus âgée avec un passé mystérieux.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0136', 'Leben des Galilei', 128, '1940-01-01', 'Suhrkamp', 'German', 'Y', 'Une pièce de théâtre sur la vie et les découvertes scientifiques de Galilée.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0137', 'Der Richter und sein Henker', 124, '1950-01-01', 'Diogenes', 'German', 'Y', 'Un roman policier sur un détective qui enquête sur le meurtre d''un collègue.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0138', 'Éléments de mathématique', 1000, '1970-01-01', 'Hermann', 'French', 'Y', 'Un ouvrage exhaustif sur les principes fondamentaux des mathématiques.'),
@@ -245,10 +247,10 @@ INSERT INTO book VALUES
 ('0000-db8-85a3-0000-0000-8a2e-0370-0165', 'Psychologie', 750, '1972-01-01', 'Masson', 'French', 'Y', 'Un manuel sur les processus mentaux et les comportements.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0166', 'Philosophie', 650, '1959-01-01', 'Hermann', 'French', 'Y', 'Un traité sur les concepts et les théories philosophiques.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0167', 'Histoire', 720, '1964-01-01', 'Dunod', 'French', 'Y', 'Un manuel sur les événements et les processus historiques.'),
-('0000-db8-85a3-0000-0000-8a2e-0370-0168', 'Géographie', 700, '1970-01-01', 'Gauthier-Villars', 'French', 'Y', 'Un traité sur les caractéristiques physiques et humaines de la Terre.'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0168', 'Géographie', 700, '1970-01-01', 'Gauthier-Villars', 'French', 'N', 'Un traité sur les caractéristiques physiques et humaines de la Terre.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0169', 'Linguistique', 750, '1967-01-01', 'Masson', 'French', 'Y', 'Un manuel sur l''étude des langues et du langage.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0170', 'Littérature', 800, '1956-01-01', 'Hermann', 'French', 'Y', 'Un traité sur les œuvres littéraires et les théories littéraires.'),
-('0000-db8-85a3-0000-0000-8a2e-0370-0171', 'Art', 720, '1963-01-01', 'Dunod', 'French', 'Y', 'Un manuel sur l''histoire et les techniques artistiques.'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0171', 'Art', 720, '1963-01-01', 'Dunod', 'French', 'N', 'Un manuel sur l''histoire et les techniques artistiques.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0172', 'Musique', 700, '1972-01-01', 'Gauthier-Villars', 'French', 'Y', 'Un traité sur les théories et les pratiques musicales.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0173', 'Théâtre', 750, '1958-01-01', 'Masson', 'French', 'Y', 'Un manuel sur l''histoire et la pratique du théâtre.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0174', 'Cinéma', 680, '1966-01-01', 'Hermann', 'French', 'Y', 'Un traité sur l''histoire et les techniques du cinéma.'),
@@ -267,7 +269,7 @@ INSERT INTO book VALUES
 ('0000-db8-85a3-0000-0000-8a2e-0370-0187', 'Comptabilité', 650, '1970-01-01', 'Dunod', 'French', 'Y', 'Un manuel sur les principes et les pratiques de la comptabilité.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0188', 'Marketing', 800, '1956-01-01', 'Gauthier-Villars', 'French', 'Y', 'Un traité sur les théories et les pratiques du marketing.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0189', 'Finances', 720, '1963-01-01', 'Masson', 'French', 'Y', 'Un manuel sur les théories et les pratiques financières.'),
-('0000-db8-85a3-0000-0000-8a2e-0370-0190', 'Ressources humaines', 700, '1972-01-01', 'Hermann', 'French', 'Y', 'Un traité sur les théories et les pratiques de la gestion des ressources humaines.'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0190', 'Ressources humaines', 700, '1972-01-01', 'Hermann', 'French', 'N', 'Un traité sur les théories et les pratiques de la gestion des ressources humaines.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0191', 'Calculus of Probability', 540, '1968-01-01', 'Springer', 'English', 'Y', 'An advanced text on the calculus of probability, covering fundamental principles and practical applications.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0192', 'Algebra and Number Theory', 600, '1951-01-01', 'Springer', 'English', 'Y', 'A comprehensive introduction to algebra and number theory, exploring key concepts and theorems.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0193', 'Projective Geometry', 420, '1954-01-01', 'Springer', 'English', 'Y', 'A detailed examination of projective geometry, focusing on its foundational aspects and applications.'),
@@ -309,14 +311,14 @@ INSERT INTO book VALUES
 ('0000-db8-85a3-0000-0000-8a2e-0370-0229', 'Differentialkalkül', 510, '1960-01-01', 'Springer', 'German', 'Y', 'Eine eingehende Studie des Differentialkalküls, die sowohl Theorie als auch praktische Problemstellungen betont.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0230', 'Reelle und Komplexe Analysis', 630, '1955-01-01', 'Springer', 'German', 'Y', 'Eine umfangreiche Untersuchung der realen und komplexen Analysis, die eingehende Einblicke in beide Themen bietet.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0231', 'Einführung in die Mathematische Logik', 370, '1938-01-01', 'Springer', 'German', 'Y', 'Eine Einführung in die mathematische Logik, die ihre grundlegenden Prinzipien und Anwendungen untersucht.'),
-('0000-db8-85a3-0000-0000-8a2e-0370-0232', 'Algebraische Strukturen', 480, '1943-01-01', 'Springer', 'German', 'Y', 'Ein umfassender Text über algebraische Strukturen, der eine detaillierte Abdeckung verschiedener algebraischer Systeme bietet.'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0232', 'Algebraische Strukturen', 480, '1943-01-01', 'Springer', 'German', 'N', 'Ein umfassender Text über algebraische Strukturen, der eine detaillierte Abdeckung verschiedener algebraischer Systeme bietet.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0233', 'Ny Ainga', 320, '2015-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Fikambanana iombonana ho an''ny ekipa.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0234', 'Sahasika', 250, '2010-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Sakafo vaovao.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0235', 'Raha tiana', 200, '2008-01-01', 'Havatsa', 'Malagasy', 'Y', 'Fiainana vaovao.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0236', 'Ny Fahalalana', 400, '2012-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Lasa tsy maintsy misy izany.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0237', 'Kambana', 150, '2013-01-01', 'Havatsa', 'Malagasy', 'Y', 'Misy zava-pisotroka maro.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0238', 'Andriamanitrio', 340, '2017-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Ny tovovavy dia nanaraka ny tranonkala.'),
-('0000-db8-85a3-0000-0000-8a2e-0370-0239', 'Vahinala', 210, '2019-01-01', 'Trano Printy', 'Malagasy', 'Y', 'il n''y a quelui'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0239', 'Vahinala', 210, '2019-01-01', 'Trano Printy', 'Malagasy', 'N', 'il n''y a quelui'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0240', 'Tantara Malagasy', 380, '2020-01-01', 'Havatsa', 'Malagasy', 'Y', 'Une collection d''histoires malgaches captivantes.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0241', 'Ambodiafenitra', 220, '2016-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Une exploration des mystères de l''espace.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0242', 'Ambalavelona', 180, '2018-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Une aventure épique dans un monde fantastique.'),
@@ -328,15 +330,15 @@ INSERT INTO book VALUES
 ('0000-db8-85a3-0000-0000-8a2e-0370-0248', 'Avo lenta', 280, '2012-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Les mystères de la forêt.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0249', 'Tsy miala', 320, '2019-01-01', 'Havatsa', 'Malagasy', 'Y', 'Inoubliable.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0250', 'Ireo Tiana', 300, '2016-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Les vrais amis.'),
-('0000-db8-85a3-0000-0000-8a2e-0370-0251', 'Andrianiko', 220, '2021-01-01', 'Havatsa', 'Malagasy', 'Y', 'Mon pays.'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0251', 'Andrianiko', 220, '2021-01-01', 'Havatsa', 'Malagasy', 'N', 'Mon pays.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0252', 'Anjaran''ny Tany', 270, '2017-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Les secrets de la terre.'),
-('0000-db8-85a3-0000-0000-8a2e-0370-0253', 'I Vola', 320, '1901-01-01', 'Trano Printy', 'Malagasy', 'Y', 'L''argent et sa signification.'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0253', 'I Vola', 320, '1901-01-01', 'Trano Printy', 'Malagasy', 'N', 'L''argent et sa signification.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0254', 'Ny Teny Soa', 250, '1902-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Les mots de sagesse.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0255', 'Finoana', 200, '1903-01-01', 'Havatsa', 'Malagasy', 'Y', 'La foi et son importance.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0256', 'Hazo Voaloboka', 400, '1904-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Les arbres précieux.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0257', 'Lohataona', 150, '1905-01-01', 'Havatsa', 'Malagasy', 'Y', 'Le calendrier.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0258', 'Manga Volana', 340, '1906-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Les mois.'),
-('0000-db8-85a3-0000-0000-8a2e-0370-0259', 'Raiso Ny Teny', 210, '1907-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Les origines des mots.'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0259', 'Raiso Ny Teny', 210, '1907-01-01', 'Trano Printy', 'Malagasy', 'N', 'Les origines des mots.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0260', 'Voninahitra', 380, '1908-01-01', 'Havatsa', 'Malagasy', 'Y', 'La gloire.'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0261', 'Fahendrena', 220, '1909-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Liberté'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0262', 'Sariaka', 180, '1910-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Trésors'),
@@ -344,7 +346,7 @@ INSERT INTO book VALUES
 ('0000-db8-85a3-0000-0000-8a2e-0370-0264', 'Antsan''ny Tany', 300, '1912-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Les fourmis de la terre'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0265', 'Fitaratra', 240, '1913-01-01', 'Havatsa', 'Malagasy', 'Y', 'Aube'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0266', 'Vonton''aina', 200, '1914-01-01', 'Trano Printy', 'Malagasy', 'Y', 'La source de vie'),
-('0000-db8-85a3-0000-0000-8a2e-0370-0267', 'Dinitra', 170, '1915-01-01', 'Havatsa', 'Malagasy', 'Y', 'Crépuscule'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0267', 'Dinitra', 170, '1915-01-01', 'Havatsa', 'Malagasy', 'N', 'Crépuscule'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0268', 'Fanantenana', 280, '1916-01-01', 'Trano Printy', 'Malagasy', 'Y', 'Espoir'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0269', 'Ny Fitarikandro', 320, '1917-01-01', 'Havatsa', 'Malagasy', 'Y', 'La lune'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0270', 'Tandroka', 300, '1918-01-01', 'Trano Printy', 'Malagasy', 'Y', 'L''éclipse'),
@@ -689,14 +691,22 @@ INSERT INTO belong (id_book, id_genre) VALUES
 ('0000-db8-85a3-0000-0000-8a2e-0370-0200', '0000-db8-35g3-0000-0000-7x2e-0370-0011'); -- Probability and Statistics
 
 INSERT INTO member VALUES
-('0000-zm8-25a1-0000-0000-3m2v-0000-0001', 'Razafindratelo', 'Abegà', '2024-01-01', '2025-01-01','Etudiant en MI - UA et Informatique HEI', 'Ambohipanja LOT 185 AS', '+261 38 22 694 35', 'a.razafindratelo@gmail.com');
+('0000-zm8-25a1-0000-0000-3m2v-0000-0001', 'Razafindratelo', 'Abegà', '2024-01-01', '2025-01-01','Etudiant en MI chez UA et Informatique chez HEI', 'Ambohipanja LOT 185 AS', '+261 38 22 694 35', 'a.razafindratelo@gmail.com'),
+('0000-zm8-25a1-0000-0000-3m2v-0000-0002', 'Ramamonjisoa', 'Ando Mamy Fanantenana', '2023-12-01', '2024-12-01','Etudiant en Informatique chez HEI', 'Andraharo LOT 034 DF', '+261 32 11 554 88', 'r.andoo@gmail.com');
 
 
 INSERT INTO borrow VALUES
 ('0000-db8-85a3-0000-0000-8a2e-0370-0192', '0000-zm8-25a1-0000-0000-3m2v-0000-0001', '2024-06-03','2024-07-03'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0192', '0000-zm8-25a1-0000-0000-3m2v-0000-0002', '2024-06-03','2024-07-03'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0198', '0000-zm8-25a1-0000-0000-3m2v-0000-0001', '2024-04-05','2024-05-05'),
 ('0000-db8-85a3-0000-0000-8a2e-0370-0194', '0000-zm8-25a1-0000-0000-3m2v-0000-0001', '2024-01-20','2024-02-20'),
-('0000-db8-85a3-0000-0000-8a2e-0370-0193', '0000-zm8-25a1-0000-0000-3m2v-0000-0001', '2024-05-17','2024-06-17');
+('0000-db8-85a3-0000-0000-8a2e-0370-0193', '0000-zm8-25a1-0000-0000-3m2v-0000-0001', '2024-05-17','2024-06-17'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0193', '0000-zm8-25a1-0000-0000-3m2v-0000-0002', '2024-05-17','2024-06-17'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0001', '0000-zm8-25a1-0000-0000-3m2v-0000-0002', '2024-01-12','2024-02-12'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0129', '0000-zm8-25a1-0000-0000-3m2v-0000-0001', '2024-01-12','2024-02-12'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0122', '0000-zm8-25a1-0000-0000-3m2v-0000-0002', '2024-01-12','2024-02-12'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0120', '0000-zm8-25a1-0000-0000-3m2v-0000-0002', '2024-01-12','2024-02-12'),
+('0000-db8-85a3-0000-0000-8a2e-0370-0115', '0000-zm8-25a1-0000-0000-3m2v-0000-0002', '2024-05-11','2024-06-11');
 
 INSERT INTO section VALUES
 ('S-0000-0001'),

@@ -86,7 +86,7 @@ export function searchingBookByASpecificGenre(genreName) {
         INNER JOIN genre
         ON genre.id_genre = belong.id_genre
         GROUP BY genre.genre_name,book.title,book.number_of_pages,book.release_date,book."status",book."language"
-        HAVING genre.genre_name = $1;`,[genreName], (err, res) => {
+        HAVING genre.genre_name ILIKE '%' || $1 || '%'`,[genreName], (err, res) => {
             console.table(res["rows"]);
         })
     });
@@ -99,7 +99,8 @@ export function booksAndAuthor(authorName) {
             title, 
             number_of_pages, 
             release_date, 
-            "status", "language" 
+            "status", 
+            "language" 
         FROM book INNER JOIN written_by 
             ON book.id_book = written_by.id_book 
         INNER JOIN author 
@@ -120,7 +121,7 @@ export function borrowerList() {
             member.phone_number,
             member.email,
             borrow.end_date,
-            book.title AS Book_Title
+            book.title AS "The title of the book"
         FROM book INNER JOIN borrow
             ON book.id_book = borrow.id_book
         INNER JOIN member
@@ -141,7 +142,7 @@ export function borrowerListEndToday() {
             member.phone_number,
             member.email,
             borrow.end_date,
-            book.title AS Book_Title
+            book.title AS "The title of the book"
         FROM book INNER JOIN borrow
             ON book.id_book = borrow.id_book
         INNER JOIN member
@@ -188,18 +189,130 @@ export function availableBookLists() {
     
 }
 
-export function insertBookToWishList(title, author, descriptions) {
-    pool.connect(function (err, client, done) {
+export function insertBookToWishList(title, author, descriptions, id_member) {
+    pool.connect(function (err, client) {
         const safeTitle = client.escapeLiteral(title);
         const safeAuthor = client.escapeLiteral(author);
         const safeDescriptions = client.escapeLiteral(descriptions);
         const query = `
             INSERT INTO wishList (title, author, descriptions)
-            VALUES (${safeTitle}, ${safeAuthor}, ${safeDescriptions})
+            VALUES (${safeTitle}, ${safeAuthor}, ${safeDescriptions}, ${id_member})
         `;
         client.query(query, (err, res) => {
-            done();
                 console.table(res.rows);
+                console.log("\t------ Merci, votre demande a bien été enregistrée ------\n");
         });
     });
 }
+
+export function insertBookToWishList2(title, author, descriptions, id_member) {
+    pool.connect(function (err, client, done) {
+        if (err) {
+            console.error('Erreur lors de la connexion à la base de données :', err);
+            return;
+        }
+        const query = `
+            INSERT INTO wishList (title, author, descriptions, id_member)
+            VALUES ($1, $2, $3, $4)
+        `;
+        const values = [title, author, descriptions, id_member];
+        client.query(query, values, (err, res) => {
+            done();
+            if (err) {
+                console.error('Erreur lors de la requête :', err);
+                return;
+            }
+            console.log("\t------ Merci, votre demande a bien été enregistrée ------\n");
+        });
+    });
+}
+
+export function nonBorrowable() {
+    pool.connect(function (err, client) {
+        client.query(`
+        SELECT 
+            title, 
+            number_of_pages, 
+            release_date, 
+            "status", 
+            "language" 
+        FROM book
+        WHERE "status" = 'N'
+        `, (err, res) => {
+            console.table(res.rows);
+        });
+    });
+};
+
+export function numberOfAvailableBooks() {
+    pool.connect(function (err, client) {
+        client.query(`
+        SELECT 
+            COUNT(*) AS "The number of all available books"
+        FROM book
+        `, (err, res) => {
+            console.table(res.rows);
+        });
+    });
+};
+
+export function numberOfmembers() {
+    pool.connect(function (err, client) {
+        client.query(`
+        SELECT 
+            COUNT(*) AS "The number of all members"
+        FROM member
+        `, (err, res) => {
+            console.table(res.rows);
+        });
+    });
+};
+
+export function TwemtyMostBorrowedBooks() {
+    pool.connect(function (err, client) {
+        client.query(`
+        SELECT 
+            book.title AS "The title of the book",
+            COUNT(*) AS "The number of book borrowing"
+        FROM book INNER JOIN borrow
+            ON book.id_book = borrow.id_book
+        GROUP BY book.title
+        ORDER BY COUNT(*) DESC LIMIT 20
+        `, (err, res) => {
+            console.table(res.rows);
+        });
+    });
+};
+
+export function TwemtyMostActivMembers() {
+    pool.connect(function (err, client) {
+        client.query(`
+        SELECT 
+            member.last_name,
+            member.first_name,
+            COUNT(*) AS "The number of book borrowing"
+        FROM member INNER JOIN borrow
+            ON member.id_member = borrow.id_member
+        GROUP BY member.last_name, member.first_name
+        ORDER BY COUNT(*) DESC LIMIT 20
+        `, (err, res) => {
+            console.table(res.rows);
+        });
+    });
+};
+
+export function TwemtyMostWishedBooks() {
+    pool.connect(function (err, client) {
+        client.query(`
+        SELECT 
+            title,
+            author,
+            COUNT(*) AS "The number of ask"
+        FROM wishList
+        GROUP BY title, author
+        ORDER BY COUNT(*) DESC LIMIT 20
+        `, (err, res) => {
+            console.table(res.rows);
+        });
+    });
+};
