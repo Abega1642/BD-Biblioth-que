@@ -1,7 +1,7 @@
 //const prompt = require("prompt-sync")();
 import chalk from "chalk";
 import PromptSync from "prompt-sync";
-import { TwemtyMostActivMembers, TwemtyMostBorrowedBooks, TwemtyMostWishedBooks, availableBookLists, booksAndAuthor, borrowerList, insertANewMember, insertBookToWishList, insertBookToWishList2, nonBorrowable, numberOfAvailableBooks, numberOfmembers, searchingBookByASpecificGenre, searchingBookByGenre, searchingBookByLanguage, searchingBookByTitle } from './requests.js'
+import { TwemtyMostActivMembers, TwemtyMostBorrowedBooks, TwemtyMostWishedBooks, availableBookLists, booksAndAuthor, borrowerList, deleteMember, insertANewMember, insertBookToWishList, insertBookToWishList2, nonBorrowable, numberOfAvailableBooks, numberOfmembers, searchingBookByASpecificGenre, searchingBookByGenre, searchingBookByLanguage, searchingBookByTitle } from './requests.js'
 const prompt = PromptSync()
 function biblio() {
     let ask = menu()
@@ -255,8 +255,9 @@ function personnelOption() {
         const phone_number = prompt("Saisir le numéro téléphone du nouveau membre : ----> ")
         const email = prompt("Saisir le email du nouveau membre : ----> ")
         insertANewMember(id_member, last_name, first_name, date_of_membership, membership_expiration, occupation, address, phone_number, email);
-    }if(personnel_ask == "11"){
-        
+    }if(personnel_ask == "10"){
+        const request = prompt("Entrer l'identifiant du membre")
+        deleteMember(request)
     }
     if (personnel_ask == "11") {
         biblio();
