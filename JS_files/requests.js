@@ -338,3 +338,13 @@ export function TwemtyMostWishedBooks() {
         });
     });
 };
+
+export function deleteMember(id_member) {
+    pool.connect(function (err, client) {
+        client.query(`
+        DELETE FROM member WHERE id_member = $1
+        `, [id_member], (err, res) => {
+            console.table(res.rows);
+        });
+    });
+}
